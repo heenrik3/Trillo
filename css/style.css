@@ -214,9 +214,14 @@ body {
   background-color: transparent;
   cursor: pointer;
   transition: all .2s; }
+  .btn-inline span {
+    margin-left: 3px;
+    transition: margin-left .2s; }
   .btn-inline:hover {
     color: var(--color-grey-dark-1);
     animation: pulsate 1s infinite; }
+    .btn-inline:hover span {
+      margin-left: 8px; }
   .btn-inline:focus {
     outline: none; }
 
@@ -276,9 +281,13 @@ body {
   background-color: white;
   box-shadow: var(--shadow-light);
   padding: 3rem;
-  margin-bottom: 3.5rem; }
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden; }
   .review__text {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    z-index: 10;
+    position: relative; }
   .review__user {
     display: flex;
     align-items: center; }
@@ -299,7 +308,48 @@ body {
     color: var(--color-grey-dark-3); }
   .review__rating {
     color: var(--color-primary);
-    font-size: 2.2rem; }
+    font-size: 2.2rem;
+    font-weight: 300; }
+  .review::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1; }
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; }
+  .cta__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem; }
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary));
+  color: white;
+  position: relative; }
+  .btn__visible {
+    display: inline-block;
+    padding: 2rem 7.5rem; }
+  .btn__invisible {
+    display: inline-block;
+    position: absolute;
+    padding: 2rem 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: -100%; }
 
 .container {
   max-width: 120rem;
@@ -346,4 +396,7 @@ body {
   margin-right: 4.5rem; }
 
 .user-reviews {
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
